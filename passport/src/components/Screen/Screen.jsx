@@ -7,13 +7,30 @@ import Wifi from "../../Assets/Wifi.svg";
 import Bottom from "../Bottom/Bottom";
 import Home from "../../Assets/Home-icon.svg";
 import Treasure from "../../Assets/Treasure-chest.svg";
+import Sourvenirs from "../../Assets/sourvenirs.png";
 import BackGround from "../Background/BackGround";
 import Passport from "../Passport/Passport";
 import "../../Fonts/HobeauxBold.ttf";
+import { createFileName, useScreenshot } from "use-react-screenshot";
+import { createRef } from "react";
 
 function Screen() {
+  const ssRef = createRef(null);
+  const [image, takeScreenshot] = useScreenshot({
+    type: "image/png",
+    quality: 1.0,
+  });
+  const download = (image, { name = "passport", extension = "png" } = {}) => {
+    const a = document.createElement("a");
+    a.href = image;
+    a.download = createFileName(extension, name);
+    a.click();
+  };
+  const downloadScreenshot = () => {
+    takeScreenshot(ssRef.current).then(download);
+  };
   return (
-    <div className="screen_container">
+    <div className="screen_container" ref={ssRef}>
       {/* <div className="screen"></div> */}
       <div className="status">
         <img src={Time} alt="time" className="time" />
@@ -30,14 +47,14 @@ function Screen() {
         </div>
         <img src={Home} alt="home_icon" className="home" />
         <div className="sourvenirs">
-          <div className="rectangle_frame">
-            <img src={Treasure} alt="Treasure" className="treasure" />
-          </div>
+          {/* <div className="rectangle_frame"> */}
+          <img src={Sourvenirs} alt="Treasure" className="treasure" />
+          {/* </div> */}
         </div>
       </div>
       <BackGround />
       <Passport />
-      <div className="downloadBtn"></div>
+      <div className="downloadBtn" onClick={downloadScreenshot}></div>
       <Bottom />
     </div>
   );
