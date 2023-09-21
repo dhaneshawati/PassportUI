@@ -4,10 +4,17 @@ import ShutterBtn from "../../Assets/shutterButton.svg";
 import Ellipse10 from "../../Assets/Ellipse10.svg";
 import CrossMark from "../../Assets/Cross.svg";
 import RetakeBtn from "../../Assets/retakeButton.png";
+import { useNavigate } from "react-router-dom";
 
 function Edit() {
   const [isRetake, setIsRetake] = useState(false);
-
+  const navigate = useNavigate();
+  const handleClose = () => {
+    navigate("/");
+  };
+  const handleSave = () => {
+    navigate("/");
+  };
   return (
     <div className="edit_page">
       <div className="rectangle_47"></div>
@@ -18,7 +25,9 @@ function Edit() {
           className="nameInput"
         />
       </div>
-      <button className="saveBtn">Save</button>
+      <button className="saveBtn" onClick={handleSave}>
+        Save
+      </button>
       {!isRetake ? (
         <img
           src={ShutterBtn}
@@ -29,7 +38,7 @@ function Edit() {
       ) : (
         <img src={RetakeBtn} alt="retakeBtn" className="retakeBtn" />
       )}
-      <div className="closeBtn">
+      <div className="closeBtn" onClick={handleClose}>
         <img src={Ellipse10} alt="ellipse10" className="ellipse10" />
         <img src={CrossMark} alt="crossMark" className="crossMark" />
       </div>

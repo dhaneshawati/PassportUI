@@ -6,8 +6,13 @@ import CheckMark1 from "../../Assets/Checkmark1.svg";
 import CheckMark2 from "../../Assets/Checkmark2.svg";
 import CheckMark3 from "../../Assets/Checkmark3.svg";
 import WorldMapImg from "../../Assets/WorldMap.png";
+import { useNavigate } from "react-router-dom";
 
 function Passport() {
+  const navigate = useNavigate();
+  const handleEdit = () => {
+    navigate("/edit");
+  };
   return (
     <div className="passport">
       <div className="myPassport">
@@ -25,8 +30,10 @@ function Passport() {
         {/* <div className="text_explore">I’m ready to discover the world !</div> */}
         <div className="dp">
           <img src={Profile} alt="profile_photo" className="profile_photo" />
-          <div className="rectangle71"></div>
-          <img src={EditBtn} alt="editBtn" className="editBtn" />
+          <div onClick={handleEdit}>
+            <div className="rectangle71"></div>
+            <img src={EditBtn} alt="editBtn" className="editBtn" />
+          </div>
         </div>
         <div className="details">
           {/* <div className="rectangle71"></div>

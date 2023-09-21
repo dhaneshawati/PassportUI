@@ -76,6 +76,7 @@
     font-weight: 900;
     line-height: normal;
     margin-top: 15px;
+    cursor: pointer;
 }
 .shutterBtn{
     position: absolute;
