@@ -308,9 +308,9 @@
     bottom: 443px;
     left: 235px; */
     top: 1px;
-    right: -29px;
-    bottom: 443px;
-    left: 235px;
+    /* right: -29px;
+    bottom: 443px; */
+    left: 207px;
     z-index: 1;
 }
 .cloud2{
@@ -323,10 +323,10 @@
     right: 239px;
     bottom: 452px;
     left: -33px; */
-    top: 0px;
-    right: 239px;
-    bottom: 452px;
-    left: -33px;
+    top: 1px;
+    /* right: 239px;
+    bottom: 452px; */
+    left: 0;
     z-index: 1;
 }
 .plane2{
