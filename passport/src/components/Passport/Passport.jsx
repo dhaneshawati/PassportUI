@@ -1,14 +1,15 @@
 import React from "react";
-import Profile from "../../Assets/Profile-photo.svg";
+// import Profile from "../../Assets/Profile-photo.svg";
 import EditBtn from "../../Assets/EditBtn.png";
 // import WorldMap from "../WorldMap/WorldMap";
 import CheckMark1 from "../../Assets/Checkmark1.svg";
 import CheckMark2 from "../../Assets/Checkmark2.svg";
 import CheckMark3 from "../../Assets/Checkmark3.svg";
 import WorldMapImg from "../../Assets/WorldMap.png";
+import Profile from "../../Assets/Profile-photo.svg";
 import { useNavigate } from "react-router-dom";
 
-function Passport() {
+function Passport({ fName, profilePhoto }) {
   const navigate = useNavigate();
   const handleEdit = () => {
     navigate("/edit");
@@ -29,7 +30,14 @@ function Passport() {
       <div className="p_upper">
         {/* <div className="text_explore">I’m ready to discover the world !</div> */}
         <div className="dp">
-          <img src={Profile} alt="profile_photo" className="profile_photo" />
+          <img
+            src={profilePhoto}
+            alt="profile_photo"
+            className={
+              profilePhoto == Profile ? "profile_photo" : "capturedImg"
+            }
+            onClick={handleEdit}
+          />
           <div onClick={handleEdit}>
             <div className="rectangle71"></div>
             <img src={EditBtn} alt="editBtn" className="editBtn" />
@@ -39,7 +47,9 @@ function Passport() {
           {/* <div className="rectangle71"></div>
           <img src={EditBtn} alt="editBtn" className="editBtn" /> */}
           <div className="namefield">NAME</div>
-          <div className="nameText">DHANESH</div>
+          <div className={fName == "NAME" ? "nameText" : "userName"}>
+            {fName}
+          </div>
           <div className="text_explore">I’m ready to discover the world !</div>
         </div>
         <div className="page_gradient"></div>

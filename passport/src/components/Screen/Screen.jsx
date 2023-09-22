@@ -13,9 +13,21 @@ import Passport from "../Passport/Passport";
 import "../../Fonts/HobeauxBold.ttf";
 import { createFileName, useScreenshot } from "use-react-screenshot";
 import { createRef } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Profile from "../../Assets/Profile-photo.svg";
+import { useEffect } from "react";
 
 function Screen() {
   const ssRef = createRef(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const handleHome = () => {
+    navigate("/", { state: { firstName: "", photo: "" } });
+  };
+  // useEffect(() => {
+  //   location.state.firstName = "";
+  //   location.state.photo = "";
+  // }, []);
   const [image, takeScreenshot] = useScreenshot({
     type: "image/png",
     quality: 1.0,
@@ -45,15 +57,16 @@ function Screen() {
         <div className="logo_container">
           <div className="milkybar"></div>
         </div>
-        <img src={Home} alt="home_icon" className="home" />
+        <img src={Home} alt="home_icon" className="home" onClick={handleHome} />
         <div className="sourvenirs">
-          {/* <div className="rectangle_frame"> */}
           <img src={Sourvenirs} alt="Treasure" className="treasure" />
-          {/* </div> */}
         </div>
       </div>
       <BackGround />
-      <Passport />
+      <Passport
+        fName={location?.state?.firstName ? location?.state?.firstName : "NAME"}
+        profilePhoto={location?.state?.photo ? location?.state?.photo : Profile}
+      />
       <div className="downloadBtn" onClick={downloadScreenshot}></div>
       <Bottom />
     </div>

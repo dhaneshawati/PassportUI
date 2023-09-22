@@ -394,26 +394,17 @@
     right: 21px;
     bottom: 695px;
     left: 318px;
+    cursor: pointer;
     z-index: 2;
 }
-.rectangle_frame{
-    width: 51px;
-    height: 51px;
-    flex-shrink: 0;
-    border-radius: 3px;
-    border: 1px solid var(--navy-blue, #021689);
-    background: var(--millybar-yellow, #FAEA18);
 
-    /* primary blue drop shadow */
-    box-shadow: 2px 2px 0px 0px #0394C3;
-    padding: 9px 8px 9px 5px;
-}
 .treasure{
     /* width: 38px;
     height: 33px; */
     width: 51px;
     height: 51px;
     flex-shrink: 0;
+    cursor: pointer;
 }
 .sourvenirs{
     width: 51px;
@@ -589,14 +580,15 @@
     top: 182.5px;
     left: -40px;
     text-align: left;
-    z-index: 4;
+    z-index: 5;
 }
-.p_upper .profile_photo{
+.profile_photo{
     /* width: 95.833px;
     height: 108.606px; */
     width: 120.833px;
-    height: 130.606px;
+    height: 130.606px; 
     transform: rotate(78.225deg);
+    /* transform: rotate(90deg); */
     flex-shrink: 0;
     stroke-width: 1px;
     stroke: var(--navy-blue, #021689);
@@ -608,6 +600,21 @@
     left: 33.2px; */
     top: 0px;
     left: 20px;
+    /* border-radius: 5px; */
+    cursor: pointer;
+    z-index: 5;
+}
+.capturedImg{
+    width: 95.833px;
+    height: 108.606px;
+    transform: rotate(90deg);
+    stroke: var(--navy-blue, #021689);
+    filter: drop-shadow(0.5px 0.5px 0px #0394C3);
+    position: absolute;
+    top: 8px;
+    left: 30px;
+    border-radius: 5px;
+    cursor: pointer;
     z-index: 5;
 }
 .p_upper .details{
@@ -680,11 +687,31 @@
     right: 30px;
     bottom: 0px;
     left: 10px; */
-    top: 190px;
+    top: 162px;
     /* right: 30px;
     bottom: 0px; */
-    left: 15px;
+    left: 40px;
     z-index: 5;
+}
+.details .userName{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: start;
+    padding-left: 23px;
+    transform: rotate(90deg);
+    color: var(--primary-blue-color, #0394C3);
+    text-shadow: 2px 2px 0px #021689;
+    font-family: "Hobeaux";
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    position: absolute;
+    top: 185px;
+    left: -10px;
+    z-index: 5;
+    text-transform: uppercase;
 }
 .details .namefield{
     transform: rotate(90deg);
